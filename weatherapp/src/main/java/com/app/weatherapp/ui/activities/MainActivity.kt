@@ -3,16 +3,18 @@ package com.app.weatherapp.ui.activities
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.find
 import com.app.weatherapp.R
 import com.app.weatherapp.extensions.DelegatesExt
+import com.app.weatherapp.extensions.Preference
 import kotlin.properties.Delegates
 
 
 class MainActivity : CoroutineScopeActivity(),ToolbarManager{
 
-    private val zipCode by DelegatesExt.preference(this,SettingsActivity.ZIP_CODE,SettingsActivity.DEFAULT_ZIP)
+    private var zipCode by DelegatesExt.preference(this,SettingsActivity.ZIP_CODE,"")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +23,14 @@ class MainActivity : CoroutineScopeActivity(),ToolbarManager{
 
         forecastList.layoutManager = LinearLayoutManager(this)
         attachToScroll(forecastList)
+        var list = arrayListOf<String>("11","22","33")
+        list.map {
+            Log.i("=========",it)
+        }
+
+        list.forEach {
+
+        }
 
     }
 
@@ -32,7 +42,7 @@ class MainActivity : CoroutineScopeActivity(),ToolbarManager{
     }
 
     private fun loadForecast(){
-        println("======"+zipCode)
+
     }
 
 }
