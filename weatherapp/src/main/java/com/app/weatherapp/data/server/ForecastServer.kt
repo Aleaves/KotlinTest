@@ -8,7 +8,10 @@ import com.app.weatherapp.domain.model.ForecastList
 class ForecastServer(private val dataMapper : ServerDataMapper = ServerDataMapper(),private val forecastDb : ForecastDb = ForecastDb()) : ForecastDataSource{
 
     override fun requestForecastByZipCode(zipCode: Long, date: Long): ForecastList? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val result = ForecastByZipCodeRequest(zipCode).execute()
+        val converted = dataMapper.convertToDomain(zipCode,result)
+        forecastDb.saveForecast(converted)
+        return forecastDb.requestForecastByZipCode(zipCode,date)
     }
 
     override fun requestDayForecast(id: Long): Forecast? = throw UnsupportedOperationException()
