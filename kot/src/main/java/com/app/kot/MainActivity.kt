@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View.TEXT_ALIGNMENT_GRAVITY
+import android.view.View.TEXT_DIRECTION_FIRST_STRONG
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.properties.Delegates
 
@@ -74,6 +76,14 @@ class MainActivity : AppCompatActivity() {
         test = 3
         test = 4
         test = 5
+
+        with(fab){
+            textAlignment = TEXT_ALIGNMENT_GRAVITY
+            textDirection = TEXT_DIRECTION_FIRST_STRONG
+        }
+        fab.let {
+
+        }
 
     }
 

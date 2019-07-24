@@ -7,6 +7,7 @@ import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.find
 import com.app.weatherapp.R
+import com.app.weatherapp.domain.commands.RequestForecastCommand
 import com.app.weatherapp.extensions.DelegatesExt
 import com.app.weatherapp.extensions.Preference
 import kotlin.properties.Delegates
@@ -42,7 +43,7 @@ class MainActivity : CoroutineScopeActivity(),ToolbarManager{
     }
 
     private fun loadForecast(){
-
+        //val result = RequestForecastCommand
     }
 
 }
