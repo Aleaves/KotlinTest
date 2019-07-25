@@ -71,20 +71,41 @@ class MainActivity : AppCompatActivity() {
 //            setTest()
 //        }
 
-        test = 1
-        test = 2
-        test = 3
-        test = 4
-        test = 5
 
-        with(fab){
-            textAlignment = TEXT_ALIGNMENT_GRAVITY
-            textDirection = TEXT_DIRECTION_FIRST_STRONG
+
+//        with(fab){
+//            textAlignment = TEXT_ALIGNMENT_GRAVITY
+//            textDirection = TEXT_DIRECTION_FIRST_STRONG
+//        }
+//        fab.let {
+//
+//        }
+
+        var p = plus(1,2){
+            a,b -> a+b
         }
-        fab.let {
+
+
+
+        //Log.i("111111111111",p.toString())
+        testFun {
+            2
+        }
+
+        testFun {
 
         }
 
+    }
+
+    fun plus(num1 :Int,num2:Int,result:(a:Int,b:Int)->Int) : Int{
+        return result(num1,num2)
+    }
+
+
+    fun testFun(listener:(String) ->Int){
+        var a = listener("123")
+        Log.i("=======1",a.toString())
     }
 
     enum class Test{
