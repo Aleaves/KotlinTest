@@ -91,10 +91,7 @@ class MainActivity : AppCompatActivity() {
         testFun {
             2
         }
-
-        testFun {
-
-        }
+        
 
     }
 

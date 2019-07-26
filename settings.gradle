@@ -1,1 +1,1 @@
-include ':app', ':kot', ':poishuhui', ':weatherapp'
+include ':app', ':kot', ':poishuhui', ':weatherapp', ':pass'

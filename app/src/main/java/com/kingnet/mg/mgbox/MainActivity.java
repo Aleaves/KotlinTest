@@ -26,27 +26,16 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        PsdEditText psdEditText = (PsdEditText) findViewById(R.id.ppe_pwd);
+        psdEditText.initStyle(R.drawable.edit_bg, 6, 0.33f, R.color.color999999, R.color.color999999, 20);
+        psdEditText.setOnTextFinishListener(new PsdEditText.OnTextFinishListener() {
+            @Override
+            public void onFinish(String str) {
+                //Toast.makeText(MainActivity.this,"哈哈哈",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }
