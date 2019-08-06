@@ -1,1 +1,1 @@
-include ':app', ':kot', ':poishuhui', ':weatherapp', ':pass', ':wanandroid'
+include ':app', ':kot', ':poishuhui', ':weatherapp', ':pass', ':wanandroid', ':testflect', ':testdexlib'
