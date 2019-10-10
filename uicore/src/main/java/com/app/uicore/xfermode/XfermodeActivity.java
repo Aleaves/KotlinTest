@@ -1,4 +1,4 @@
-package com.netease.paint.xfermode;
+package com.app.uicore.xfermode;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

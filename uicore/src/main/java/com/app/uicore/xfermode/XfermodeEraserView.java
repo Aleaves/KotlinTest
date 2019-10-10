@@ -1,4 +1,4 @@
-package com.netease.paint.xfermode;
+package com.app.uicore.xfermode;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,6 +12,8 @@ import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.app.uicore.R;
 
 public class XfermodeEraserView extends View {
 

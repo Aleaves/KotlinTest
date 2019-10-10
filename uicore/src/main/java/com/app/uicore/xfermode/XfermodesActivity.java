@@ -1,4 +1,4 @@
-package com.netease.paint.xfermode;
+package com.app.uicore.xfermode;
 
 import android.content.Context;
 import android.graphics.Bitmap;

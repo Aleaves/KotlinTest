@@ -1,9 +1,11 @@
-package com.netease.paint.colorfilter;
+package com.app.uicore.colorfilter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import com.app.uicore.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +20,7 @@ public class ColorFilterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_colorfilter);
 
         inItFilters();
         recyclerView = findViewById(R.id.recyclerView);

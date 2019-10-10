@@ -1,4 +1,4 @@
-package com.netease.paint.colorfilter;
+package com.app.uicore.colorfilter;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
