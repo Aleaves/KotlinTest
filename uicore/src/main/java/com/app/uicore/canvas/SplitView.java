@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -43,6 +42,7 @@ public class SplitView extends View {
     }
 
     private void init() {
+
         mPaint = new Paint();
         mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.pic);
 
@@ -102,10 +102,9 @@ public class SplitView extends View {
         canvas.translate(500, 500);
         for (Ball ball : mBalls) {
             mPaint.setColor(ball.color);
-            Log.i("=========",ball.x+"==="+ball.y+"==="+ball.r);
             canvas.drawCircle(ball.x, ball.y, ball.r,mPaint);
         }
-        
+
     }
 
 

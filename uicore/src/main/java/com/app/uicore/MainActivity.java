@@ -2,6 +2,8 @@ package com.app.uicore;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
+
 import com.app.uicore.bezier.BezierView;
 import com.app.uicore.canvas.SplitView;
 
@@ -12,4 +14,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(new SplitView(this));
     }
+
 }
