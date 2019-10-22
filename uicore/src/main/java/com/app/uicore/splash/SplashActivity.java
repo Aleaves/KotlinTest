@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
+import android.widget.ImageView;
 
 import com.app.uicore.R;
 
@@ -23,5 +24,9 @@ public class SplashActivity extends FragmentActivity {
                 R.layout.view_intro_5,
                 R.layout.view_login
         });
+        ImageView iv_man = (ImageView) findViewById(R.id.iv_man);
+        iv_man.setBackgroundResource(R.drawable.man_run);
+        container.setIv_man(iv_man);
+
     }
 }

@@ -8,8 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ParallaxFragment extends Fragment {
 
+    private List<View> parallaxViews = new ArrayList<>();
 
     @Nullable
     @Override
@@ -19,4 +23,9 @@ public class ParallaxFragment extends Fragment {
         ParallaxLayoutInflater inflater = new ParallaxLayoutInflater(original,getActivity(),this);
         return  inflater.inflate(layoutId,null);
     }
+
+    public List<View> getParallaxViews(){
+        return parallaxViews;
+    }
+
 }
