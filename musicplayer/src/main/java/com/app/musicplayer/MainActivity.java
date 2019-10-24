@@ -3,23 +3,19 @@ package com.app.musicplayer;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import androidx.annotation.Nullable;
 
 import com.app.musicplayer.ui.UIUtils;
 import com.app.musicplayer.ui.ViewCalculateUtil;
@@ -28,13 +24,15 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.transition.Transition;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class MainActivity extends AppCompatActivity {
 
-    public final static String IMAGE_URL_MEDIUM = "http://p3.music.126.net/iRbTMHGfy-grDtx7o2T_dA==/109951164009413034.jpg?param=400y400";
+    public final static String IMAGE_URL_MEDIUM = "https://p3.music.126.net/iRbTMHGfy-grDtx7o2T_dA==/109951164009413034.jpg?param=400y400";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +42,52 @@ public class MainActivity extends AppCompatActivity {
         initView();
         notifyData();
         postImage();
+        initScrollViewListener();
+    }
+
+
+    int slidingDistance;
+    private void initScrollViewListener() {
+//        最好的 测量 就是不测量    view.getParams().height
+        slidingDistance = UIUtils.getInstance().getHeight(490);
+        myNestedScrollView.setOnMyScrollChangeListener(new MyNestedScrollView.ScrollInterface() {
+
+
+            @Override
+            public void onScrollChange(int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                scrollChangeHeader(scrollY);
+            }
+
+
+        });
+
+    }
+
+    private void scrollChangeHeader(int scrolledY) {
+        if (scrolledY < 0) {
+            scrolledY = 0;
+        }
+//0  1
+        float alpha = Math.abs(scrolledY) * 1.0f / (slidingDistance);
+        Drawable drawable = toolbar_bg.getDrawable();
+        if (drawable != null) {
+            //490
+            if (scrolledY <= slidingDistance) {
+                drawable.mutate().setAlpha((int) (alpha * 255));
+                toolbar_bg.setImageDrawable(drawable);
+            }else {
+                //490
+                drawable.mutate().setAlpha(255);
+                toolbar_bg.setImageDrawable(drawable);
+            }
+        }
+
 
     }
 
 
     private void postImage() {
-        /*Glide.with(this)
+        Glide.with(this)
                 .load(IMAGE_URL_MEDIUM)
                 .listener(new RequestListener<Drawable>() {
                     @Override
@@ -61,7 +99,8 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                         return false;
                     }
-                }).override(400,400)
+                })
+                .override(400,400)
                 .into(header_image_item);
 
         // "14":模糊度；"3":图片缩放3倍后再进行模糊
@@ -69,30 +108,29 @@ public class MainActivity extends AppCompatActivity {
                 .load(IMAGE_URL_MEDIUM)
                 .error(R.drawable.stackblur_default)
                 .placeholder(R.drawable.stackblur_default)
-                .crossFade(500)
-                .bitmapTransform(new BlurTransformation(this, 200, 3))
-                .into(new SimpleTarget<GlideDrawable>() {
+                .into(new SimpleTarget<Drawable>() {
                     @Override
-                    public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
+                    public void onResourceReady(Drawable resource, @Nullable Transition<? super Drawable> transition) {
                         lv_header_contail.setBackground(resource);
                     }
                 });
+
         Glide.with(this).load(IMAGE_URL_MEDIUM)
                 .error(R.drawable.stackblur_default)
-                .bitmapTransform(new BlurTransformation(this, 250, 6))// 设置高斯模糊
-                .listener(new RequestListener<String, GlideDrawable>() {//监听加载状态
+                .listener(new RequestListener<Drawable>() {
                     @Override
-                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                         return false;
                     }
+
                     @Override
-                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                         toolbar.setBackgroundColor(Color.TRANSPARENT);
                         toolbar_bg.setImageAlpha(0);
                         toolbar_bg.setVisibility(View.VISIBLE);
                         return false;
                     }
-                }).into(toolbar_bg);*/
+                }).into(toolbar_bg);
 
 
     }
@@ -120,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
     MyNestedScrollView myNestedScrollView;
 
     private void initView() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.more));
         toolbar_bg = findViewById(R.id.toolbar_bg);

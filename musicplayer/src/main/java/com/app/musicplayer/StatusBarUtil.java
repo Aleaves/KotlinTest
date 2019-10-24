@@ -13,7 +13,7 @@ import com.app.musicplayer.ui.UIUtils;
 
 public class StatusBarUtil {
 
-
+    
     public static void setTranslateStateBar(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = activity.getWindow();
