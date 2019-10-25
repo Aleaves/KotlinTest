@@ -1,1 +1,1 @@
-include ':app', ':kot', ':poishuhui', ':weatherapp', ':pass', ':wanandroid', ':testflect', ':testdexlib', ':myapp', ':netbase_qrcode', ':uicore', ':myview'
+include ':app', ':kot', ':poishuhui', ':weatherapp', ':pass', ':wanandroid', ':testflect', ':testdexlib', ':myapp', ':netbase_qrcode', ':uicore', ':myview', ':musicplayer'
