@@ -76,8 +76,6 @@ public class BezierView extends View {
         }
 
         //闭合路径波浪以下区域
-
-        Log.i("=======",getWidth()+"===="+getHeight());
         mBezierPath.lineTo(getWidth(), getHeight());
         mBezierPath.lineTo(0, getHeight());
         mBezierPath.close();

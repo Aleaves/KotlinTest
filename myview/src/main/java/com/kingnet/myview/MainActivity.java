@@ -10,12 +10,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.kingnet.myview.wave.BezierView;
+import com.kingnet.myview.wave.TimeView;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new BezierView(this));
+        setContentView(new TimeView(this));
     }
 }
