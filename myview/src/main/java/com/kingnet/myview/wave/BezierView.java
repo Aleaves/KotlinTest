@@ -59,7 +59,7 @@ public class BezierView extends View {
         mAnimator.setInterpolator(new LinearInterpolator());
         mAnimator.setDuration(1000);
         mAnimator.setRepeatCount(-1);
-        mAnimator.start();
+        //mAnimator.start();
 
     }
 
@@ -76,9 +76,9 @@ public class BezierView extends View {
         }
 
         //闭合路径波浪以下区域
-        mBezierPath.lineTo(getWidth(), getHeight());
-        mBezierPath.lineTo(0, getHeight());
-        mBezierPath.close();
+//        mBezierPath.lineTo(getWidth(), getHeight());
+//        mBezierPath.lineTo(0, getHeight());
+//        mBezierPath.close();
 
         canvas.drawPath(mBezierPath,mPaint);
 

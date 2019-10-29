@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical">
 
-        <com.kingnet.myview.wave.WaveLoadingView
-            android:id="@+id/wave_load_1"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:wave_load_color="#ee5b49"
-            app:wave_load_icon="@drawable/ic_mobike"
-            android:visibility="visible"/>
+    <com.kingnet.myview.wave.WaveLoadingView
+        android:id="@+id/wave_load_1"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:visibility="visible"
+        app:wave_load_color="#ee5b49"
+        app:wave_load_icon="@drawable/ic_mobike" />
 
 
 </LinearLayout>
