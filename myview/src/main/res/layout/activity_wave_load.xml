@@ -14,5 +14,14 @@
         app:wave_load_color="#ee5b49"
         app:wave_load_icon="@drawable/ic_mobike" />
 
+    <com.kingnet.myview.wave.YWaveLoadView
+        android:id="@+id/wave_load_2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:visibility="visible"
+        android:layout_marginTop="10dp"
+        app:wave_load_color="#ee5b49"
+        app:wave_load_icon="@drawable/ic_mobike" />
+
 
 </LinearLayout>
