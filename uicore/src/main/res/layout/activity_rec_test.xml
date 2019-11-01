@@ -72,6 +72,15 @@
 
     </FrameLayout>
     
+    
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        app:layout_behavior="com.app.uicore.rec.ScaleBehavior"
+        />
+    
 
 
 </android.support.design.widget.CoordinatorLayout>
