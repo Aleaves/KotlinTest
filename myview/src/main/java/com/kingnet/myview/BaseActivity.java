@@ -7,7 +7,6 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
-        Log.i("=============1",hasFocus+"");
         super.onWindowFocusChanged(hasFocus);
     }
 }
