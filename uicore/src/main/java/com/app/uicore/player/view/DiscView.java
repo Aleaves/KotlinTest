@@ -188,9 +188,6 @@ public class DiscView extends RelativeLayout {
             } else {
                 objectAnimator.start();
             }
-            if(currentItem == viewPager.getCurrentItem()){
-                mNeedleAnimator.reverse();
-            }
         }
         if(currentItem != viewPager.getCurrentItem()){
             currentItem = viewPager.getCurrentItem();

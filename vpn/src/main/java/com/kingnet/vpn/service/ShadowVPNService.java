@@ -17,7 +17,6 @@ import android.util.Log;
 
 import com.kingnet.vpn.R;
 import com.kingnet.vpn.ShadowVPN;
-import com.kingnet.vpn.util.ShadowVPNConfigureHelper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -173,7 +172,6 @@ public class ShadowVPNService extends VpnService
 
 		this.protect(this.mShadowVPN.getSockFileDescriptor());
 
-		ShadowVPNConfigureHelper.selectShadowVPNConfigure(this, title);
 
 		this.mShadowVPN.start();
 	}
@@ -224,8 +222,6 @@ public class ShadowVPNService extends VpnService
 	public void onDestroy()
 	{
 		this.mServiceLooper.quit();
-
-		ShadowVPNConfigureHelper.resetAllSelectedValue(this);
 
 		this.stopVPN();
 	}
